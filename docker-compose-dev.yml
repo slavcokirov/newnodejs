@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: ./
+      target: dev
+    volumes:
+      - .:/src/myapp
+    command: npm run start:dev
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: development
+      DEBUG: appjs:*

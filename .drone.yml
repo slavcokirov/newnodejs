@@ -1,0 +1,31 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: Build docker image and push to dockerhub
+  image: plugins/docker
+  settings: 
+    username:
+      from_secret: DOCKER_USERNAME 
+    password:
+      from_secret: DOCKER_PASSWORD
+    target: production
+    repo: slavchokirov/appjs
+    tags: latest
+
+- name: Pull image and restart docker-compose stack
+  image: appleboy/drone-ssh
+  settings:
+    host: ${DRONE_SYSTEM_HOST}
+    username: drone
+    port: 22
+    key:
+      from_secret: DRONE_SSH_KEY
+    script:
+      - cd /root/repos/newnodejs/ && docker-compose down && docker-compose pull && docker-compose up -d
+
+when:
+  branch:
+  - master
