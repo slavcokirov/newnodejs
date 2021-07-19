@@ -66,4 +66,4 @@ Open `a/nice/path/to/a.file` then edit it with your settings. You will need:
     $ yarn build
 
 ## Note
-  Don't forget to add DOCKER_USERNAME and DOCKER_PASSWORD as Drone secrets
+  Don't forget to add DOCKER_USERNAME, DOCKER_PASSWORD and DRONE_SSH_KEY as Drone secrets
