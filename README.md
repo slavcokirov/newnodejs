@@ -1,8 +1,6 @@
-[![Build Status](http://drone-ci.local/api/badges/slavcokirov/newnodejs/status.svg)](http://drone-ci.local/slavcokirov/newnodejs)
+# Sample Node.js app 
 
-# Project Title
-
-A nice project with a nice description
+A sample Node.js app automated using Drone CI
 
 ---
 ## Requirements
@@ -66,3 +64,6 @@ Open `a/nice/path/to/a.file` then edit it with your settings. You will need:
 ## Simple build for production
 
     $ yarn build
+
+## Note
+  Don't forget to add DOCKER_USERNAME and DOCKER_PASSWORD as Drone secrets
